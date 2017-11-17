@@ -11,21 +11,21 @@ class Main{
       if(menu == 0){
         menu = Main.printMenu();
       }else if(menu == 1){
-        if(mahasiswa.nama != "") {
-          mahasiswa = mahasiswa.registrasi();
-          mahasiswas.add(mahasiswa);
-        }else {
-          System.out.println("Anda Sudah Melakukan Registrasi");
-        }
+        mahasiswa = mahasiswa.registrasi();
+        mahasiswas.add(mahasiswa);
         menu = 0;
       }else if(menu == 2){
         mahasiswa.bayarRegistrasi();
         menu = 0;
       }else if(menu == 3){
-        mahasiswa.ujianMasuk();
+        if(mahasiswa.ujian != null || mahasiswa.pembayaran != null){
+          mahasiswa.ujianMasuk();
+        }
         menu = 0;
       }else if(menu == 4){
-        mahasiswa.hasilUjian();
+        if(mahasiswa.ujian != null || mahasiswa.pembayaran != null){
+          mahasiswa.hasilRegistrasi();
+        }
         menu = 0;
       }
 

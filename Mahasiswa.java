@@ -10,6 +10,8 @@ class Mahasiswa {
 
   PendidikanTerakhir pendidikanTerakhir;
 
+  Ujian ujian;
+
   public Mahasiswa registrasi() {
     List<Jurusan> jurusans = new ArrayList<Jurusan>();
     jurusans.add(new Jurusan("TIF", 10000D));
@@ -52,12 +54,38 @@ class Mahasiswa {
     Scanner sc = new Scanner(System.in);
     System.out.print("Atasnama : ");
     this.pembayaran.atas_nama = sc.nextLine();
+    this.pembayaran.verifikasi = true;
+    this.pembayaran.sudah_upload_file = true;
+    
   }
 
   public void ujianMasuk() {
-    
+    this.ujian = new Ujian();
+    this.ujian.doUjian();
   }
-  public void hasilUjian() {
+  public void hasilRegistrasi() {
+    System.out.println("------------------------------------");
+    System.out.println("Pembayaran Biaya Pendaftaran");
+    System.out.println("------------------------------------");
+    System.out.println("Nama : " + this.nama);
+    System.out.println("Jurusan : " + this.jurusan.nama);
+    System.out.println("Pendidikan Terakhir : " + this.pendidikanTerakhir.nama);
+    System.out.println("------------------------------------");
+    System.out.println("Pembayaran : ");
+    System.out.println("------------------------------------");
+    System.out.println("Jumlah : " + this.pembayaran.jumlah_bayar);
+    System.out.println("Atasnama : " + this.pembayaran.atas_nama);
+    System.out.println("------------------------------------");
+    System.out.println("Hasil Ujian : ");
+    System.out.println("------------------------------------");
+    System.out.println("Jawaban Benar : " + this.ujian.jumlah_benar);
+    System.out.println("Total Soal  : " + this.ujian.jumlah_soal);
+    System.out.println("Nilai  : " + this.ujian.nilai);
     
+    System.out.println("Dengan Ini Dinyatakan: " + (this.ujian.nilai > 70D ? "LULUS" : "TIDAK LULUS"));
+
+    Scanner sc = new Scanner(System.in);
+    System.out.print("Silahkan Tekan Enter ");
+    sc.nextLine();
   }
 }
