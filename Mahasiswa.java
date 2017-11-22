@@ -54,7 +54,7 @@ class Mahasiswa {
     Scanner sc = new Scanner(System.in);
     System.out.print("Atasnama : ");
     this.pembayaran.atas_nama = sc.nextLine();
-    this.pembayaran.verifikasi = true;
+    // this.pembayaran.verifikasi = true;
     this.pembayaran.sudah_upload_file = true;
     
   }
@@ -88,4 +88,23 @@ class Mahasiswa {
     System.out.print("Silahkan Tekan Enter ");
     sc.nextLine();
   }
+
+
+  static Mahasiswa pilihanMahasiswa (List<Mahasiswa> piliahan) {
+
+    System.out.println("------------------------------------");
+    System.out.println("Piliah Mahasiswa");
+    System.out.println("------------------------------------");
+    Scanner sc = new Scanner(System.in);
+    System.out.println("");
+    for (int i = 0; i < piliahan.size(); i++) {
+      System.out.println((i + 1 ) +  " . " + piliahan.get(i).nama );
+    } 
+    System.out.println("------------------------------------");
+    System.out.print("Pilih  : ");
+    int menu = sc.nextInt();
+    System.out.println("------------------------------------");
+    return piliahan.get(menu - 1);
+  }
+
 }

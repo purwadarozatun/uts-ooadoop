@@ -9,4 +9,5 @@ class Pembayaran{
     this.verifikasi = false;
     this.sudah_upload_file = false;
   }
+
 }

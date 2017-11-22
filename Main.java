@@ -27,6 +27,27 @@ class Main{
           mahasiswa.hasilRegistrasi();
         }
         menu = 0;
+      }else if(menu == 5){
+        Mahasiswa mhs = mahasiswa.pilihanMahasiswa(mahasiswas);
+        List<String> pilihanTrima = new ArrayList();
+        pilihanTrima.add("Terima");
+        pilihanTrima.add("Belum Terima");
+        String pickTerima = Main.pilihan(pilihanTrima);
+        if(pickTerima == "Terima"){
+          int index = mahasiswas.indexOf(mhs);
+          mhs.pembayaran.verifikasi = true;
+          mahasiswas.add(index,mhs);
+        }
+        menu = 0;
+      }else if(menu == 6){
+
+        System.out.println("------------------------------------");
+        System.out.println("Perwalian");
+        System.out.println("------------------------------------");
+        
+        Perwalian perwalian = new Perwalian(mahasiswa);
+        perwalian.addMatkul();
+        menu = 0;
       }
 
       Main.clean(); 
@@ -43,6 +64,16 @@ class Main{
     System.out.println("2. Pembayaran");
     System.out.println("3. Ujian Masuk");
     System.out.println("4. Hasil Registrasi");
+    System.out.println("------------------------------------");
+    System.out.println("PMB (Penerimaan Mahasiswa Baru)");
+    System.out.println("------------------------------------");
+    System.out.println("Menu : Staff Tu ");
+    System.out.println("5. Konfirmasi Pembayaran");
+    System.out.println("------------------------------------");
+    System.out.println("Perwalian");
+    System.out.println("------------------------------------");
+    System.out.println("Menu : Mahasiswa ");
+    System.out.println("6. Request Perwalian");
     System.out.println("------------------------------------");
     System.out.print("Pilih Menu : ");
     int menu = sc.nextInt();
