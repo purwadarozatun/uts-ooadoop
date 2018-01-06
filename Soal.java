@@ -21,4 +21,11 @@ class Soal {
   public Boolean isJawabanBenar( String jawabanMhs) {
     return (this.jawabanBenar.equals(jawabanMhs));
   }
+
+  public String getJawabanA(){
+    return this.jawabanA;
+  }
+  public void setJawabanA(String jawabanA){
+    this.jawabanA = jawabanA;
+  }
 }

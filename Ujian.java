@@ -33,7 +33,7 @@ class Ujian {
       Soal soal = this.soal.get(i);
       System.out.println((i + 1 ) +  " . " + soal.soal );
       System.out.println("Pilihan : ");
-      System.out.println("A . " + soal.jawabanA );
+      System.out.println("A . " + soal.getJawabanA() );
       System.out.println("B . " + soal.jawabanB );
       System.out.println("C . " + soal.jawabanC );
       System.out.println("D . " + soal.jawabanD );
