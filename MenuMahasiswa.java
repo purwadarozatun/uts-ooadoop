@@ -17,6 +17,7 @@ class MenuMahasiswa {
         System.out.println("3. Ujian Masuk");
         System.out.println("4. Hasil Registrasi");
         System.out.println("5. Request Perwalian");
+        System.out.println("6. Keluar");
 
         Scanner sc = new Scanner(System.in);
 
@@ -34,13 +35,17 @@ class MenuMahasiswa {
           mahasiswa.bayarRegistrasi();
           menu = 0;
         }else if(menu == 3){
-          if(mahasiswa.ujian != null || mahasiswa.pembayaran != null){
+          if( mahasiswa.pembayaran != null){
             mahasiswa.ujianMasuk();
+          }else {
+            System.out.println("Silahkan Lakukan Pembayaran")
           }
           menu = 0;
         }else if(menu == 4){
-          if(mahasiswa.ujian != null || mahasiswa.pembayaran != null){
+          if(mahasiswa.ujian != null ){
             mahasiswa.hasilRegistrasi();
+          }else {
+            System.out.println("Silahkan Lakukan Ujian Masuk")
           }
           menu = 0;
         }else if(menu == 5){

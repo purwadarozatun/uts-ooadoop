@@ -13,6 +13,7 @@ class MenuStaffTu {
         System.out.println("------------------------------------");
         System.out.println("Menu : Staff Tu ");
         System.out.println("1. Konfirmasi Pembayaran");
+        System.out.println("6. Keluar");
 
         Scanner sc = new Scanner(System.in);
 
@@ -39,6 +40,6 @@ class MenuStaffTu {
     }
 
   }
-  public void bukaMenu () {
+  public void bukaMenu () { 
   }
 }
