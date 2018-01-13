@@ -6,14 +6,14 @@ class MenuStaffTu {
     int menu = 0;
     List<Mahasiswa> mahasiswas = Main.mahasiswas;
     Mahasiswa mahasiswa = Main.mahasiswa;
-    while(menu != 6) {
+    while(menu != 2) {
       if(menu == 0) {
         System.out.println("------------------------------------");
         System.out.println("PMB (Penerimaan Mahasiswa Baru)");
         System.out.println("------------------------------------");
         System.out.println("Menu : Staff Tu ");
         System.out.println("1. Konfirmasi Pembayaran");
-        System.out.println("6. Keluar");
+        System.out.println("2. Keluar");
 
         Scanner sc = new Scanner(System.in);
 
@@ -31,7 +31,7 @@ class MenuStaffTu {
           if(pickTerima == "Terima"){
             int index = Main.mahasiswas.indexOf(mhs);
             mhs.pembayaran.verifikasi = true;
-            Main.mahasiswas.add(index,mhs);
+            Main.mahasiswas.set(index,mhs);
           }
           menu = 0;
         }
@@ -39,7 +39,5 @@ class MenuStaffTu {
       
     }
 
-  }
-  public void bukaMenu () { 
   }
 }

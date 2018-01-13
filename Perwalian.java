@@ -8,7 +8,7 @@ class Perwalian {
   Dosen dosen;
   Mahasiswa mahasiswa;
 
-  Boolean statusPerwalian = true;
+  Boolean statusPerwalian = false;
 
   List<Dosen> listDosen;
 
@@ -28,7 +28,7 @@ class Perwalian {
       String matakuliah = sc.nextLine();
       this.matakuliah.add(matakuliah);
     }
-    System.out.println("Pilih Dosen");
+    System.out.println("Pilih Dosen Wali");
     this.dosen = Perwalian.piliahanDosen(listDosen);
 
     
@@ -49,6 +49,31 @@ class Perwalian {
     int menu = sc.nextInt();
     System.out.println("------------------------------------");
     return piliahan.get(menu - 1);
+  }
+
+  public Boolean verifikasiPerwalian() {
+    System.out.println("------------------------------------");
+    System.out.println("Perwalian");
+    System.out.println("------------------------------------");
+
+    System.out.println("Matakuliah Yang Di Ambil");
+    System.out.println("------------------------------------");
+    for (int i = 0; i < matakuliah.size(); i++) {
+      System.out.println((i + 1 ) +  " . " + matakuliah.get(i) );
+    } 
+    System.out.println("------------------------------------");
+    System.out.println("Dosen Wali");
+    System.out.println("------------------------------------");
+    System.out.println(this.dosen.nama);
+    System.out.println("------------------------------------");
+    List<String> pilihanTrima = new ArrayList();
+    pilihanTrima.add("Terima");
+    pilihanTrima.add("Belum Terima");
+    String pickTerima = Main.pilihan(pilihanTrima);
+    if(pickTerima == "Terima"){
+      return true;
+    }
+    return false;
   }
 
 

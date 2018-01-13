@@ -16,6 +16,9 @@ class Main{
       }else if(menu == 2){
         MenuStaffTu menuStaffTu = new MenuStaffTu();
         menu = 0;
+      }else if(menu == 3){
+        MenuDosen menuosen = new MenuDosen();
+        menu = 0;
       }
 
       Main.clean(); 
@@ -36,6 +39,7 @@ class Main{
     // System.out.println("PMB (Penerimaan Mahasiswa Baru)");
     // System.out.println("------------------------------------");
     System.out.println("2. Staff Tu ");
+    System.out.println("3. Dosen ");
     // System.out.println("5. Konfirmasi Pembayaran");
     // System.out.println("------------------------------------");
     // System.out.println("Perwalian");

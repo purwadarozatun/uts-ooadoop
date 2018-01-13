@@ -11,6 +11,7 @@ class Mahasiswa {
   PendidikanTerakhir pendidikanTerakhir;
 
   Ujian ujian;
+  Perwalian perwalian;
 
   public Mahasiswa registrasi() {
     List<Jurusan> jurusans = new ArrayList<Jurusan>();
