@@ -1,7 +1,11 @@
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 class Mahasiswa {
+  String kode_registrasi;
+  String nim;
   String nama;
   String alamat;
   String no_tlp;
@@ -14,6 +18,8 @@ class Mahasiswa {
   Perwalian perwalian;
 
   public Mahasiswa registrasi() {
+
+    
     List<Jurusan> jurusans = new ArrayList<Jurusan>();
     jurusans.add(new Jurusan("TIF", 10000D));
     jurusans.add(new Jurusan("TI", 12000D));
@@ -31,6 +37,14 @@ class Mahasiswa {
     mahasiswa.jurusan = Mahasiswa.pilihan(jurusans);
     mahasiswa.pendidikanTerakhir = PendidikanTerakhir.askPendidikanTerakhir();
     mahasiswa.pembayaran = new Pembayaran(mahasiswa.jurusan.harga_pendaftaran);
+    mahasiswa.kode_registrasi = "MABA" + new SimpleDateFormat("MMddyyyy").format(new Date());
+    System.out.println("------------------------------------");
+    System.out.println("Kode Registrasi : " + mahasiswa.kode_registrasi);
+    System.out.println("------------------------------------");
+    System.out.println("Pendaftaran Pembayaran");
+    System.out.println("Jumlah Yang Harus Di Bayarkan : ");
+    System.out.println("Rp." + mahasiswa.jurusan.harga_pendaftaran);
+    System.out.println("------------------------------------");
     return mahasiswa;
   }
 
@@ -52,6 +66,17 @@ class Mahasiswa {
     System.out.println("------------------------------------");
     System.out.println("Pembayaran Biaya Pendaftaran");
     System.out.println("------------------------------------");
+    System.out.println("------------------------------------");
+    System.out.println("Jumlah Yang Harus Di Bayarkan :");
+    System.out.println("Rp." + this.jurusan.harga_pendaftaran);
+    System.out.println("------------------------------------");
+    System.out.println("------------------------------------");
+    System.out.println("Dibayarkan Ke Rek");
+    System.out.println("Mandiri  Syariah ");
+    System.out.println("No Rekening : 12312321312");
+    System.out.println("A/N: PT ANU");
+    System.out.println("------------------------------------");
+    
     Scanner sc = new Scanner(System.in);
     System.out.print("Atasnama : ");
     this.pembayaran.atas_nama = sc.nextLine();
@@ -82,24 +107,28 @@ class Mahasiswa {
     System.out.println("Jawaban Benar : " + this.ujian.jumlah_benar);
     System.out.println("Total Soal  : " + this.ujian.jumlah_soal);
     System.out.println("Nilai  : " + this.ujian.nilai);
-    
-    System.out.println("Dengan Ini Dinyatakan: " + (this.ujian.nilai > 70D ? "LULUS" : "TIDAK LULUS"));
 
+    this.nim = "MHS" + new SimpleDateFormat("MMddyyyy").format(new Date());
+    System.out.println("NIM  : " + this.nim);
+    System.out.println("Dengan Ini Dinyatakan: " + (this.ujian.nilai > 70D ? "LULUS" : "TIDAK LULUS"));
+  
     Scanner sc = new Scanner(System.in);
     System.out.print("Silahkan Tekan Enter ");
     sc.nextLine();
+  
   }
 
 
   static Mahasiswa pilihanMahasiswa (List<Mahasiswa> piliahan) {
 
     System.out.println("------------------------------------");
-    System.out.println("Piliah Mahasiswa");
+    System.out.println("Pilih Mahasiswa");
     System.out.println("------------------------------------");
     Scanner sc = new Scanner(System.in);
     System.out.println("");
     for (int i = 0; i < piliahan.size(); i++) {
-      System.out.println((i + 1 ) +  " . " + piliahan.get(i).nama );
+      Mahasiswa mhs = piliahan.get(i);
+      System.out.println((i + 1 ) +  " . " + (mhs.nim != null ? mhs.nim : mhs.kode_registrasi) + "  " + mhs.nama  );
     } 
     System.out.println("------------------------------------");
     System.out.print("Pilih  : ");

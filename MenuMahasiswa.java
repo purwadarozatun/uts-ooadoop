@@ -20,13 +20,14 @@ class MenuMahasiswa {
         System.out.println("PMB (Penerimaan Mahasiswa Baru)");
         System.out.println("------------------------------------");
         System.out.println("Menu : Mahasiswa ");
-        if(mahasiswa.nama == null){
+        if(mahasiswa.nim == null){
           System.out.println("1. Daftar");
+          System.out.println("2. Pembayaran");
+          System.out.println("3. Ujian Masuk");
+          System.out.println("4. Hasil Registrasi");
+        }else {
+          System.out.println("5. Request Perwalian");
         }
-        System.out.println("2. Pembayaran");
-        System.out.println("3. Ujian Masuk");
-        System.out.println("4. Hasil Registrasi");
-        System.out.println("5. Request Perwalian");
         System.out.println("6. Keluar");
 
         Scanner sc = new Scanner(System.in);
@@ -36,12 +37,10 @@ class MenuMahasiswa {
         menu = sc.nextInt();
         System.out.println("------------------------------------");
       }else {
+
         if(menu == 1){
           // MenuMahasiswa menuMhs = new MenuMahasiswa();
-          if(mahasiswa.nama == null){
-
           mahasiswa = mahasiswa.registrasi();
-          }
           menu = 0;
         }else if(menu == 2){
           mahasiswa.bayarRegistrasi();
